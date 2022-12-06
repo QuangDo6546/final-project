@@ -14,6 +14,10 @@ picker.append(result[1])
 picker.append(result[2])
 
 
+def conever_choice (index):
+    return fruits [index]
+
+
 def random_pick():
     list_result = []
     print("The result is: {}".format("".join(picker)))
@@ -41,4 +45,20 @@ def Menu():
         choice = int(input("Enter a number of fruits you want to choice: "))
         if (choice == 7):
             print("Thanks for playing.")
+
+        if len(player)> 0:
+            print("You choose: {}".format(''.join(player)))
+            continue_choice = input("Do you want to continue choice? (y/n) ")
+            if continue_choice == 'y':
+                if Menu():
+                    break
+            else:
+                random_pick()
+                break
+
+        else:
+            if Menu():
+                break
+            
+
 Menu()
