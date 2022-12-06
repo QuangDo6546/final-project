@@ -17,6 +17,14 @@ picker.append(result[2])
 def random_pick():
     list_result = []
     print("The result is: {}".format("".join(picker)))
+    for item in player:
+        for up in picker:
+            if(item==up):
+                list_result.append(up)
+    if len(list_result)> 0:
+        print("You won: {}".format(''.join(list_result)))
+    else:
+        print("Good luck next time! ")
 
 
 
