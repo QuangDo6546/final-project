@@ -20,13 +20,13 @@ def conever_choice (index):
 
 def random_pick():
     list_result = []
-    print("The result is: {}".format("".join(picker)))
+    print("The result is: {}".format(" ".join(picker)))
     for item in player:
         for up in picker:
             if(item==up):
                 list_result.append(up)
     if len(list_result)> 0:
-        print("You won: {}".format(''.join(list_result)))
+        print("You won: {}".format('-'.join(list_result)))
     else:
         print("Good luck next time! ")
 
@@ -36,18 +36,28 @@ def random_pick():
 
 
 def Menu():
-    os.system("cls")
-    i = 0
-    for option in fruits:
-        i = i + 1
-        print("{}. {}".format(i,option))
+    print("1.Apple")
+    print("2.Orange")
+    print("3.Banana")
+    print("4.Watermelon")
+    print("5.Pine Apple")
+    print("6.Coconut")
+    print("7.Exit")
+    
 
-        choice = int(input("Enter a number of fruits you want to choice: "))
-        if (choice == 7):
-            print("Thanks for playing.")
+    choice = int(input("Enter a number of fruits you want to choice: "))
+    if (choice == 7):
+        print("Thanks for playing.")
+        return True
+        
+    else:
+        player.append(conever_choice(int(choice)-1))
+        return False
 
-        if len(player)> 0:
-            print("You choose: {}".format(''.join(player)))
+while True:
+    os.system("cls" if os.name == 'nt' else 'clear')
+    if len(player)> 0:
+            print("You choose: {}".format(', '.join(player)))
             continue_choice = input("Do you want to continue choice? (y/n) ")
             if continue_choice == 'y':
                 if Menu():
@@ -56,9 +66,9 @@ def Menu():
                 random_pick()
                 break
 
-        else:
-            if Menu():
-                break
+    else:
+        if Menu():
+            break
             
 
-Menu()
+#Menu()
