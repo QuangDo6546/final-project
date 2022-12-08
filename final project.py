@@ -17,9 +17,10 @@ picker.append(result[2])
 def conever_choice (index):
     return fruits [index]
 
+list_result = []
 
 def random_pick():
-    list_result = []
+    
     print("The result is: {}".format(", ".join(picker)))
     for item in player:
         for up in picker:
@@ -32,8 +33,13 @@ def random_pick():
 
 
 def txt_file():
-    txtFile = ""
-
+    myFile = open("fruits.txt", "w")
+    for data in list_result:
+        myFile.write("You won: ")
+        myFile.write("\n{}".format(data))
+   
+    myFile.close()
+    
 
 
 def Menu():
@@ -75,6 +81,7 @@ while True:
                     break
             elif continue_choice == 'n':
                 random_pick()
+                txt_file()
                 break
             else:
                 print("Please enter invalid input!")
