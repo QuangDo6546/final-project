@@ -1,4 +1,4 @@
-import os
+
 import random
 fruits = ['Apple','Orange','Banana','Watermelon','Pine Apple','Coconut']
 
@@ -36,6 +36,7 @@ def random_pick():
 
 
 def Menu():
+    
     print("1.Apple")
     print("2.Orange")
     print("3.Banana")
@@ -55,20 +56,21 @@ def Menu():
         return False
 
 while True:
-    os.system("cls" if os.name == 'nt' else 'clear')
+    
     if len(player)> 0:
+            print()
             print("You choose: {}".format(', '.join(player)))
             continue_choice = input("Do you want to continue choice? (y/n) ")
             if continue_choice == 'y':
                 if Menu():
                     break
-            else:
+            elif continue_choice == 'n':
                 random_pick()
                 break
-
+            else:
+                print("Please enter invalid input!")
     else:
         if Menu():
             break
             
 
-#Menu()
