@@ -31,7 +31,8 @@ def random_pick():
         print("Good luck next time! ")
 
 
-
+def txt_file():
+    txtFile = ""
 
 
 
@@ -54,7 +55,10 @@ def Menu():
         
         if (choice == 0):
             print("Invalid input, try again!")
-            print()        
+            print()
+
+        if (choice >=8):
+            print("Invalid input, try again!")        
         else:
             player.append(conever_choice(int(choice)-1))
             return False
