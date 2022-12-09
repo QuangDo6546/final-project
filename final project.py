@@ -28,15 +28,18 @@ def random_pick():
                 list_result.append(up)
     if len(list_result)> 0:
         print("You won: {}".format(', '.join(list_result)))
+        print("Won fruits have been created to a text file at C: \ user \ your name \ fruits.txt")
     else:
         print("Good luck next time! ")
 
 
 def txt_file():
     myFile = open("fruits.txt", "w")
+    myFile.write("You won: ")
+    i = 0
     for data in list_result:
-        myFile.write("You won: ")
-        myFile.write("\n{}".format(data))
+        i = i + 1
+        myFile.write("\n{}.{}".format(i,data))
    
     myFile.close()
     
